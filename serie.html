@@ -146,7 +146,7 @@
     </nav>
    
     <div id="contenedor"></div>
-    <button><a class="nav-link" aria-disabled="true" href="personajes.html?idserie="+idSerie>Personajes</a></button>
+    <button><a id="dirSerie" class="nav-link" aria-disabled="true">Personajes</a></button>
 
     <script src="js/bootstrap.bundle.min.js"
         class="astro-vvvwv3sm"></script>
@@ -159,6 +159,7 @@
 
         $(document).ready(function () 
         {
+            $("#dirSerie").attr("href","personajes.html?idserie="+idSerie);
             mostrarSerie();
         })
 
