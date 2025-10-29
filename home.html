@@ -134,11 +134,7 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Series
                         </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a></a>
-                            </li>
-                        </ul>
+                        <ul class="dropdown-menu" id="listaSeries"></ul>
                     </li>
                 </ul>
             </div>
@@ -155,10 +151,35 @@
 
         $(document).ready(function () 
         {
-            cargarSeries();
+            //cargarListaSeries();
+            mostrarSeries();
         })
 
-        function cargarSeries()
+        function cargarListaSeries()
+        {
+            let endPoint = "api/Series";
+            $.ajax(
+                {
+                    url: url + endPoint,
+                    type:"GET",
+                    success: function(data)
+                    {
+                        let html;
+                        $.each(data, function(index, serie)
+                        {
+                            html += "<li>";
+                                html += "<a class='nav-link' aria-disabled='true' href='modificar.html?idSerie="+serie.idSerie+"'>";
+                                    html += serie.nombre;
+                                html += "</a>";
+                            html += "</li>";
+                        })
+                        $("#listaSeries").html(html);
+                    }
+                })
+
+        }
+
+        function mostrarSeries()
         {
             let endPoint = "api/Series";
             $.ajax(

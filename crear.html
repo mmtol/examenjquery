@@ -206,7 +206,7 @@
             var idPersonaje = 0;
             var nombre = $("#cajaNombre").val();
             var imagen = $("#cajaImagen").val();
-            var idSerie = $("#selectSerie").val();
+            var idSerie = parseInt($("#selectSerie").val());
 
             var personaje = new Object();
             personaje.idPersonaje=idPersonaje;
@@ -214,7 +214,7 @@
             personaje.imagen=imagen;
             personaje.idSerie=idSerie;
 
-            var data = JSON.stringify(hospital);
+            var data = JSON.stringify(personaje);
             $.ajax(
                 {
                     url:url+endPoint,
